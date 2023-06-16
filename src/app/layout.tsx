@@ -1,6 +1,6 @@
 import { Inter } from "next/font/google";
 import getCurrentUser from "./actions/get-current-user";
-import ClientOnly from "./components/client-only";
+// import ClientOnly from "./components/client-only";
 import LoginModal from "./components/modals/login-modal";
 import RegisterModal from "./components/modals/register-modal";
 import Navbar from "./components/navbar/navbar";
@@ -24,12 +24,12 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ClientOnly>
-          <Navbar currentUser={currentUser} />
-          <RegisterModal />
-          <LoginModal />
-          <ToasterProvider />
-        </ClientOnly>
+        {/* <ClientOnly> */}
+        <Navbar currentUser={currentUser} />
+        <RegisterModal />
+        <LoginModal />
+        <ToasterProvider />
+        {/* </ClientOnly> */}
         {children}
       </body>
     </html>
