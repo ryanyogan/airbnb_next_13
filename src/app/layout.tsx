@@ -1,5 +1,6 @@
 import { Inter } from "next/font/google";
 import ClientOnly from "./components/client-only";
+import LoginModal from "./components/modals/login-modal";
 import RegisterModal from "./components/modals/register-modal";
 import Navbar from "./components/navbar/navbar";
 import "./globals.css";
@@ -23,6 +24,7 @@ export default function RootLayout({
         <ClientOnly>
           <Navbar />
           <RegisterModal />
+          <LoginModal />
           <ToasterProvider />
         </ClientOnly>
         {children}
