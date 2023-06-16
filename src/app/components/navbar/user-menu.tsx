@@ -2,7 +2,7 @@
 
 import useRegisterModal from "@/app/hooks/use-register-modal";
 import useLoginModal from "@/app/hooks/user-login-modal";
-import { User } from "@prisma/client";
+import { SafeUser } from "@/app/types";
 import { signOut } from "next-auth/react";
 import { useCallback, useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
@@ -10,7 +10,7 @@ import Avatar from "../avatar";
 import MenuItem from "./menu-item";
 
 interface UserMenuProps {
-  currentUser?: User | null;
+  currentUser?: SafeUser | null;
 }
 
 export default function UserMenu({ currentUser }: UserMenuProps) {
