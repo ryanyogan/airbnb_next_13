@@ -1,7 +1,7 @@
 "use client";
 
 import clsx from "clsx";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { IoMdClose } from "react-icons/io";
 import Button from "../button";
 
@@ -31,6 +31,7 @@ export default function Modal({
   secondaryActionLabel,
 }: ModalProps) {
   const [showModal, setShowModal] = useState(isOpen);
+  const ref = useRef();
 
   useEffect(() => {
     setShowModal(isOpen);

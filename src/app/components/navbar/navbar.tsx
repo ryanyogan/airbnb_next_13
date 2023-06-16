@@ -2,6 +2,7 @@
 
 import { SafeUser } from "@/app/types";
 import Container from "../container";
+import Categories from "./categories";
 import Logo from "./logo";
 import Search from "./search";
 import UserMenu from "./user-menu";
@@ -24,6 +25,7 @@ export default function Navbar({ currentUser }: NavbarProps) {
           </div>
         </Container>
       </div>
+      <Categories />
     </div>
   );
 }
