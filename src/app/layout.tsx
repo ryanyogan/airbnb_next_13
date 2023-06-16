@@ -1,4 +1,5 @@
 import { Inter } from "next/font/google";
+import getCurrentUser from "./actions/get-current-user";
 import ClientOnly from "./components/client-only";
 import LoginModal from "./components/modals/login-modal";
 import RegisterModal from "./components/modals/register-modal";
@@ -13,16 +14,18 @@ export const metadata = {
   description: "Find a place to squat forever",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const currentUser = await getCurrentUser();
+
   return (
     <html lang="en">
       <body className={inter.className}>
         <ClientOnly>
-          <Navbar />
+          <Navbar currentUser={currentUser} />
           <RegisterModal />
           <LoginModal />
           <ToasterProvider />
