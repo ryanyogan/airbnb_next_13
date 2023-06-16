@@ -1,6 +1,7 @@
 "use client";
 
 import useRegisterModal from "@/app/hooks/use-register-modal";
+import useRentModal from "@/app/hooks/use-rent-modal";
 import useLoginModal from "@/app/hooks/user-login-modal";
 import { SafeUser } from "@/app/types";
 import { signOut } from "next-auth/react";
@@ -16,6 +17,7 @@ interface UserMenuProps {
 export default function UserMenu({ currentUser }: UserMenuProps) {
   const registerModal = useRegisterModal();
   const loginModal = useLoginModal();
+  const rentModal = useRentModal();
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -23,11 +25,20 @@ export default function UserMenu({ currentUser }: UserMenuProps) {
     setIsOpen((value) => !value);
   }, []);
 
+  const onRent = useCallback(() => {
+    if (!currentUser) {
+      return loginModal.onOpen();
+    }
+
+    // Open Rent Modal
+    rentModal.onOpen();
+  }, [loginModal, currentUser, rentModal]);
+
   return (
     <div className="relative">
       <div className="flex flex-row items-center gap-3">
         <div
-          onClick={() => {}}
+          onClick={onRent}
           className="hidden sm:block text-sm font-semibold py-3 px-4 rounded-full hover:bg-neutral-100 transition cursor-pointer"
         >
           Airbnb your home
