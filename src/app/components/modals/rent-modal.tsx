@@ -6,6 +6,7 @@ import { useMemo, useState } from "react";
 import { FieldValues, useForm } from "react-hook-form";
 import Heading from "../heading";
 import CategoryInput from "../inputs/category-input";
+import Counter from "../inputs/counter";
 import CountrySelect from "../inputs/country-select";
 import { categories } from "../navbar/categories";
 import Modal from "./modal";
@@ -36,6 +37,7 @@ export default function RentModal() {
       category: "",
       location: null,
       guestCount: 1,
+      roomCount: 1,
       bathroomCount: 1,
       imageSrc: "",
       price: 1,
@@ -46,6 +48,9 @@ export default function RentModal() {
 
   const selectedCategory = watch("category");
   const selectedLocation = watch("location");
+  const guestCount = watch("guestCount");
+  const roomCount = watch("roomCount");
+  const bathroomCount = watch("bathroomCount");
 
   const LocationMap = useMemo(
     () =>
@@ -124,6 +129,37 @@ export default function RentModal() {
         />
 
         <LocationMap center={selectedLocation?.latlng} />
+      </div>
+    );
+  }
+
+  if (step === STEPS.INFO) {
+    bodyContent = (
+      <div className="flex flex-col gap-8">
+        <Heading
+          title="Share some basics about your place"
+          subTitle="What ammenities do you have?"
+        />
+        <Counter
+          title="Guests"
+          subTitle="How many guests do you allow?"
+          value={guestCount}
+          onChange={(value) => setCustomValue("guestCount", value)}
+        />
+        <hr />
+        <Counter
+          title="Rooms"
+          subTitle="How many rooms do you have?"
+          value={roomCount}
+          onChange={(value) => setCustomValue("roomCount", value)}
+        />
+        <hr />
+        <Counter
+          title="Bathrooms"
+          subTitle="How many bathrooms do you have?"
+          value={bathroomCount}
+          onChange={(value) => setCustomValue("bathroomCount", value)}
+        />
       </div>
     );
   }

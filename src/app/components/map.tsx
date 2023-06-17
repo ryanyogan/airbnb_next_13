@@ -5,7 +5,7 @@ import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
 import markerIcon from "leaflet/dist/images/marker-icon.png";
 import markerShadow from "leaflet/dist/images/marker-shadow.png";
 import "leaflet/dist/leaflet.css";
-import { MapContainer, TileLayer } from "react-leaflet";
+import { MapContainer, Marker, TileLayer } from "react-leaflet";
 
 // @ts-ignore
 delete L.Icon.Default.prototype._getIconUrl;
@@ -32,6 +32,8 @@ export default function LocationMap({ center }: LocationMapProps) {
       className="h-[35vh] rounded-lg"
     >
       <TileLayer url={url} attribution={attribution} />
+
+      {center && <Marker position={center as L.LatLngExpression} />}
     </MapContainer>
   );
 }
