@@ -1,6 +1,7 @@
 "use client";
 
 import useRentModal from "@/app/hooks/use-rent-modal";
+import dynamic from "next/dynamic";
 import { useMemo, useState } from "react";
 import { FieldValues, useForm } from "react-hook-form";
 import Heading from "../heading";
@@ -45,6 +46,15 @@ export default function RentModal() {
 
   const selectedCategory = watch("category");
   const selectedLocation = watch("location");
+
+  const LocationMap = useMemo(
+    () =>
+      dynamic(() => import("../map"), {
+        ssr: false,
+      }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [selectedLocation]
+  );
 
   const setCustomValue = (id: string, value: any) => {
     setValue(id, value, {
@@ -112,6 +122,8 @@ export default function RentModal() {
           value={selectedLocation}
           onChange={(value) => setCustomValue("location", value)}
         />
+
+        <LocationMap center={selectedLocation?.latlng} />
       </div>
     );
   }
