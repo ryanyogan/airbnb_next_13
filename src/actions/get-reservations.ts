@@ -21,7 +21,7 @@ export default async function getReservations({
       query.userId = userId;
     }
     if (authorId) {
-      query.authorId = { userId: authorId };
+      query.listing = { userId: authorId };
     }
 
     const reservations = await db.reservation.findMany({
