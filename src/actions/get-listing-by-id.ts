@@ -6,7 +6,6 @@ interface IParams {
 
 export default async function getListingById({ listingId }: IParams) {
   try {
-    console.log(listingId);
     const listing = await db.listing.findUnique({
       where: { id: listingId },
       include: { user: true },
