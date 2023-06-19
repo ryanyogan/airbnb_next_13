@@ -1,9 +1,9 @@
 "use client";
 
-import Container from "@/app/components/container";
-import { categories } from "@/app/components/navbar/categories";
-import useLoginModal from "@/app/hooks/user-login-modal";
-import { SafeListing, SafeReservation, SafeUser } from "@/app/types";
+import Container from "@/components/container";
+import { categories } from "@/components/navbar/categories";
+import useLoginModal from "@/hooks/user-login-modal";
+import { SafeListing, SafeReservation, SafeUser } from "@/types";
 import axios from "axios";
 import { differenceInDays, eachDayOfInterval } from "date-fns";
 import { useRouter } from "next/navigation";
@@ -72,8 +72,7 @@ export default function ListingClient({
       .then(() => {
         toast.success("Your reservation was created!");
         setDateRange(initialDateRange);
-        // Redirect to trips
-        router.refresh();
+        router.push("/trips");
       })
       .catch(() => {
         toast.error("Something went wrong");

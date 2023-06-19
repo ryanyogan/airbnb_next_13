@@ -1,7 +1,7 @@
 "use client";
 
-import useCountries from "@/app/hooks/use-countries";
-import { SafeUser } from "@/app/types";
+import useCountries from "@/hooks/use-countries";
+import { SafeUser } from "@/types";
 import Image from "next/image";
 import Heading from "../heading";
 import HeartButton from "../heart-button";

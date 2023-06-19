@@ -1,9 +1,9 @@
 "use client";
 
-import useRegisterModal from "@/app/hooks/use-register-modal";
-import useRentModal from "@/app/hooks/use-rent-modal";
-import useLoginModal from "@/app/hooks/user-login-modal";
-import { SafeUser } from "@/app/types";
+import useRegisterModal from "@/hooks/use-register-modal";
+import useRentModal from "@/hooks/use-rent-modal";
+import useLoginModal from "@/hooks/user-login-modal";
+import { SafeUser } from "@/types";
 import { signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useCallback, useState } from "react";

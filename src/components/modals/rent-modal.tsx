@@ -1,6 +1,6 @@
 "use client";
 
-import useRentModal from "@/app/hooks/use-rent-modal";
+import useRentModal from "@/hooks/use-rent-modal";
 import axios from "axios";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";

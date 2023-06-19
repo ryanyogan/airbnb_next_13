@@ -1,7 +1,7 @@
 "use client";
 
-import useCountries from "@/app/hooks/use-countries";
-import { SafeUser } from "@/app/types";
+import useCountries from "@/hooks/use-countries";
+import { SafeUser } from "@/types";
 import dynamic from "next/dynamic";
 import { IconType } from "react-icons";
 import Avatar from "../avatar";

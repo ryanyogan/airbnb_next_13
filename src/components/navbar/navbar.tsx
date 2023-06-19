@@ -1,6 +1,6 @@
 "use client";
 
-import { SafeUser } from "@/app/types";
+import { SafeUser } from "@/types";
 import Container from "../container";
 import Categories from "./categories";
 import Logo from "./logo";
