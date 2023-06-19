@@ -3,8 +3,7 @@
 import Container from "@/app/components/container";
 import { categories } from "@/app/components/navbar/categories";
 import useLoginModal from "@/app/hooks/user-login-modal";
-import { SafeListing, SafeUser } from "@/app/types";
-import { Reservation } from "@prisma/client";
+import { SafeListing, SafeReservation, SafeUser } from "@/app/types";
 import axios from "axios";
 import { differenceInDays, eachDayOfInterval } from "date-fns";
 import { useRouter } from "next/navigation";
@@ -22,7 +21,7 @@ const initialDateRange = {
 };
 
 interface ListingClientProps {
-  reserverations?: Reservation[];
+  reserverations?: SafeReservation[];
   listing: SafeListing & {
     user: SafeUser;
   };
@@ -40,7 +39,7 @@ export default function ListingClient({
   const disabledDates = useMemo(() => {
     let dates: Date[] = [];
 
-    reserverations.forEach((reserveration: Reservation) => {
+    reserverations.forEach((reserveration: SafeReservation) => {
       const range = eachDayOfInterval({
         start: new Date(reserveration.startDate),
         end: new Date(reserveration.endDate),
