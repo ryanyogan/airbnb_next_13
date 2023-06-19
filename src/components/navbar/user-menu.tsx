@@ -61,6 +61,7 @@ export default function UserMenu({ currentUser }: UserMenuProps) {
           <div className="flex flex-col cursor-pointer" onClick={toggleIsOpen}>
             {currentUser ? (
               <>
+                <MenuItem label="Home" onClick={() => router.push("/")} />
                 <MenuItem
                   onClick={() => router.push("/trips")}
                   label="My Trips"

@@ -1,3 +1,4 @@
+import SearchModal from "@/components/modals/search-modal";
 import { Inter } from "next/font/google";
 import getCurrentUser from "../actions/get-current-user";
 import LoginModal from "../components/modals/login-modal";
@@ -28,6 +29,7 @@ export default async function RootLayout({
         <RegisterModal />
         <LoginModal />
         <RentModal />
+        <SearchModal />
         <ToasterProvider />
 
         <div className="pb-20 pt-28">{children}</div>
