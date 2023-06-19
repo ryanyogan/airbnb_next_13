@@ -72,7 +72,7 @@ export default function UserMenu({ currentUser }: UserMenuProps) {
                 />
                 <MenuItem onClick={onRent} label="Airbnb my home" />
                 <hr />
-                <MenuItem onClick={signOut} label="Logout" />
+                <MenuItem onClick={signOut()} label="Logout" />
               </>
             ) : (
               <>
