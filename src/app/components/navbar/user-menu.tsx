@@ -5,6 +5,7 @@ import useRentModal from "@/app/hooks/use-rent-modal";
 import useLoginModal from "@/app/hooks/user-login-modal";
 import { SafeUser } from "@/app/types";
 import { signOut } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import { useCallback, useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import Avatar from "../avatar";
@@ -18,6 +19,7 @@ export default function UserMenu({ currentUser }: UserMenuProps) {
   const registerModal = useRegisterModal();
   const loginModal = useLoginModal();
   const rentModal = useRentModal();
+  const router = useRouter();
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -59,7 +61,10 @@ export default function UserMenu({ currentUser }: UserMenuProps) {
           <div className="flex flex-col cursor-pointer" onClick={toggleIsOpen}>
             {currentUser ? (
               <>
-                <MenuItem onClick={() => {}} label="My Trips" />
+                <MenuItem
+                  onClick={() => router.push("/trips")}
+                  label="My Trips"
+                />
                 <MenuItem onClick={() => {}} label="My Favorites" />
                 <MenuItem onClick={() => {}} label="My Reservations" />
                 <MenuItem onClick={onRent} label="Airbnb my home" />
