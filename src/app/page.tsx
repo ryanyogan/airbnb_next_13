@@ -9,7 +9,6 @@ interface HomeProps {
 }
 
 export const dynamic = "force-dynamic";
-export const runtime = "edge";
 
 export default async function Home({ searchParams }: HomeProps) {
   const listings = await getListings(searchParams);
